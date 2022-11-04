@@ -1,0 +1,1 @@
+Crystal and ruby are very similar but crystal is faster. this is because 
