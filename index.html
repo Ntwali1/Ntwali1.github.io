@@ -41,7 +41,13 @@
 					<h2>Table of contents</h2>
 					<ul>
 						<li><a href="#/2">History & Development</a></li>
-						<li><a href="#/3">Language overview and features</a></li>
+						<li><a href="#/3">Language overview</a>
+							<ul>
+								<li><a href="#/3/1">Types</a></li>
+								<li><a href="#/3/9">Sequence control</a></li>
+							</ul>
+						</li>
+						<li><a href="#/4">Key features</a></li>
 						<li>Evaluation</li>
 						<li>Appendix sample programs</li>
 					</ul>
@@ -75,11 +81,11 @@
 
 				<section>
 					<section>
-						<h3>Language overview and features</h3>
+						<h3>Language overview</h3>
 						<p> 
 							Crystal is based off of Ruby Syntatically but compiles to much more efficient native code using an LLVM backend.it uses an advanced type inference system built into
 							the compiler that allows it to infer types of variables and methods at compile time. it also posesses automated memory management and garbage collection. these features give it the 
-							of higher level scripting languages and sets it apart from other languages in its class.
+							feel of higher level scripting languages and sets it apart from other languages in its class.
 						</p>
 						
 						<a href="#/3/1" class="navigate-down">
@@ -87,10 +93,10 @@
 						</a>
 					</section>
 					<section>
-						
+						<h2>Types</h2>
 						<p>
-							Crystal comes with a standard library that is very similar to Ruby's standard library as well as a package manager called shards similar to Ruby's gem package manager.
-							Crystal is built with basic types such as Integers, Strings, Hashes and collection types such as Arrays, ranges, static arrays and tuples.
+							
+							Crystal is built with  a plethora of basic types including Integers, Strings, char, Hashes, booleans  and collection types such as Arrays and ranges.
 						</p>
 						<br>
 						<a href="#/3/2" class="navigate-down">
@@ -98,31 +104,180 @@
 						</a>
 					</section>
 					<section>
-							<p> #TBD  </p>
+						<h2 data-id="code-title">Integers</h2>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							#there are 5 signed and unsigned integers in crystal ranging 
+							#from 8-128 bits.
+							#an integer is can be optionaly suffixed with u or i to specify
+							#it's signedness and size.
+							myInt = 100_i16 # 16 bit integer
+							myInt = 100_u32 # 32 bit unsigned integer
+						</code></pre>
 						<br>
-						<a href="#/3">
-							<img class="r-frame" style="background: rgba(255,255,255,0.1); transform: rotate(180deg);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
+						<a href="#/3/3">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
+						</a>
+					</section>
+					<section>
+						<h2 data-id="code-title">Bool</h2>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							#there are 2 possible values for bool 
+							true 
+							false
+						</code></pre>
+						<br>
+						<a href="#/3/4">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
+						</a>
+					</section>
+					<section>
+						<h2 data-id="code-title">Strings and Chars</h2>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							# String are a immutable sequences of UTF-8 characters. enclosed by double quotes
+							myString = "hi mom"
+							# A char is a single UTF-8 character enclosed by single quotes
+							myChar = 'a'
+						</code></pre>
+						<br>
+						<a href="#/3/5">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
+						</a>
+					</section>
+					<section>
+						<h2 data-id="code-title">Arrays</h2>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							# An Array is an integer-indexed collection of elements.
+							# of a specific type T. Arrays are zero-indexed and a
+							# negative index is as an offset from the end of the array.
+							myArr = Array(Int32).new  # => []
+							myArr1 = [1, 2, 3]         # Array(Int32)
+							myArr2 = [1, "hi", 'x'] # Array(Int32 | String | Char)
+						</code></pre>
+						<br>
+						<a href="#/3/6">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
+						</a>
+					</section>
+					<section>
+						<h2 data-id="code-title">hashes </h2>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							# A Hash is a generic collection of key-value pairs 
+							# mapping keys of type K to values of type V
+							hash = Hash(String, Int32).new # initialise an empty hash
+							hash["one"] = 1 
+							hash["two"] = 2
+							#the above hash can also be written as
+							hash = {"one" => 1, "two" => 2}
+						</code></pre>
+						<br>
+						<a href="#/3/7">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
+						</a>
+					</section>
+					<section>
+						<h2 data-id="code-title">ranges </h2>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							# A Range is an interval between two values 
+							# it is constructed with a range literal
+							myArr =[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+							#(x..y) is inclusive of x and y
+							myArr.select(6..)
+							#[6, 7, 8, 9, 10]
+
+							#(x...y) is exclusive of y
+							myArr.select(6...)  
+							#[6, 7, 8, 9]
+						</code></pre>
+						<br>
+						<a href="#/3/8">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
+						</a>
+					</section>
+					<section>
+						<h2>Sequence control</h2>
+						<p>
+							
+							Crystal boasts a rich set of control structures that allow you to express your code in a clear and concise manner. these 
+							control structures include the typical if-else, while and cases. but also includes newer constructs such as unless, until statement 
+							unlike most languages crystal does not have support for for loops. crystal also occasionaly employs compound statements to end 
+							complex control structures. this improves readability as their aren't many brackets to keep track of.
+						</p>
+						<br>
+						<a href="#/3/9" class="navigate-down">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="30" height="53" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h2 data-id="code-title">if/ unless statements </h2>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							#if executes the code if the condition is true
+
+							if condition1
+								do_foo
+							elsif condition2
+								do_bar
+							else
+								do_fooBar
+
+							#unless executes code if the condition is false
+
+							unless condition1
+								do_foo
+							else
+								do_bar
+							end
+						</code></pre>
+						<br>
+						<a href="#/3/8">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
+						</a>
+					</section>
+					<section>
+						<h2 data-id="code-title">cases </h2>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							#a case statement is a multi-way if statement
+
+							case exp
+							when value1, value2
+								do_something
+							when value3
+								do_otherthing
+							else
+								do_otherOtherthing
+							end
+						</code></pre>
+						<br>
+						<a href="#/3/9">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
+						</a>
+					</section>
+					<section>
+						<h2 data-id="code-title">while/Until loops </h2>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							#executes code given truthy condition
+							while some_condition
+								do_this
+							end
+							#executes code until condition is truthy
+							until some_condition
+								do_this
+							end
+						</code></pre>
+						<br>
+						<a href="#/3/9">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
 						</a>
 					</section>
 				</section>
 
 				
 
-				<section data-auto-animate>
-					<h2 data-id="code-title">Pretty Code</h2>
-					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
-						import React, { useState } from 'react';
-
-						function Example() {
-						  const [count, setCount] = useState(0);
-
-						  return (
-						    ...
-						  );
-						}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="https://highlightjs.org/usage/">highlight.js</a>.</p>
+				<section>
+					<h2>Language Features</h2>
+					
 				</section>
+
 
 				<section data-auto-animate>
 					<h2 data-id="code-title">With animations</h2>
