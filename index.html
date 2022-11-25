@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
 
 		<title>The Crystal programming language</title>
+		<link rel="icon" type="image/x-icon" href="/assets/Crystal Logo.gif">
 
 		<meta name="author" content="Ntwali Muhizi">
 
@@ -41,19 +42,19 @@
 					<h2>Table of contents</h2>
 					<ul>
 						<li><a href="#/2">History & Development</a></li>
-						<li><a href="#/3">Language overview</a>
+						<li><a href="#/3">Language overview & Key features</a>
 							<ul>
-								<li><a href="#/3/1">Types</a></li>
-								<li><a href="#/3/9">Sequence control</a></li>
+								<li><a href="#/3/1">Syntax</a></li>
+								<li><a href="#/3/2">Types</a></li>
+								<li><a href="#/3/9">Primitive operations</a></li>
+								<li><a href="#/3/10">Sequence control</a></li>
 							</ul>
 						</li>
-						<li><a href="#/4">Key features</a></li>
 						<li>Evaluation</li>
 						<li>Appendix sample programs</li>
 					</ul>
 				</section>
 
-				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
 						<h2>History & Development</h2>
@@ -69,8 +70,7 @@
 					<section>
 						
 						<p>Development for the crystal programming language began in mid 2011 when one of the founders <a href="https://manas.tech/staff/ary/">Ary Borenszweig</a> took it upon himself to prove
-						 it was possible to have a compiled Ruby-like language. a year after the inception of the idea the entire language except for the parser and lexer were compeltely redesigned this time by a team of 300
-					     contributors including Ary, <a href="https://manas.tech/staff/waj/">Juan Wajnerman</a> and <a href="https://manas.tech/staff/bcardiff/">Brian Cardiff</a> at Manas labs<sup><a href="https://manas.tech/blog/2016/04/01/the-story-behind-crystal/">1</a></sup> </p>
+						 it was possible to have a compiled Ruby-like language.  </p>
 						 <br>
 						 <a href="#/2">
 							<img class="r-frame" style="background: rgba(255,255,255,0.1); transform: rotate(180deg);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
@@ -81,14 +81,28 @@
 
 				<section>
 					<section>
-						<h3>Language overview</h3>
+						<h3>Language overview & features</h3>
 						<p> 
-							Crystal is based off of Ruby Syntatically but compiles to much more efficient native code using an LLVM backend.it uses an advanced type inference system built into
-							the compiler that allows it to infer types of variables and methods at compile time. it also posesses automated memory management and garbage collection. these features give it the 
+							Crystal is based off of Ruby Syntatically but compiles to more efficient native code.The crystal compiler is fitted with a garbage collector as well as a type inference system. these features give it the 
 							feel of higher level scripting languages and sets it apart from other languages in its class.
 						</p>
 						
 						<a href="#/3/1" class="navigate-down">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="30" height="53" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h3>Syntax</h3>
+						<p> 
+							
+							<ul>
+								<li>Crystal uses infix notation for most of its operators. </li>
+								<li>It uses the same syntax for method calls and function calls.</li>
+								<li>uses the end compound statement to signify the end of a block</li>
+							</ul>
+						</p>
+						
+						<a href="#/3/2" class="navigate-down">
 							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="30" height="53" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow">
 						</a>
 					</section>
@@ -99,7 +113,7 @@
 							Crystal is built with  a plethora of basic types including Integers, Strings, char, Hashes, booleans  and collection types such as Arrays and ranges.
 						</p>
 						<br>
-						<a href="#/3/2" class="navigate-down">
+						<a href="#/3/3" class="navigate-down">
 							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="30" height="53" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow">
 						</a>
 					</section>
@@ -114,7 +128,7 @@
 							myInt = 100_u32 # 32 bit unsigned integer
 						</code></pre>
 						<br>
-						<a href="#/3/3">
+						<a href="#/3/4">
 							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
 						</a>
 					</section>
@@ -126,7 +140,7 @@
 							false
 						</code></pre>
 						<br>
-						<a href="#/3/4">
+						<a href="#/3/5">
 							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
 						</a>
 					</section>
@@ -139,7 +153,7 @@
 							myChar = 'a'
 						</code></pre>
 						<br>
-						<a href="#/3/5">
+						<a href="#/3/6">
 							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
 						</a>
 					</section>
@@ -154,7 +168,7 @@
 							myArr2 = [1, "hi", 'x'] # Array(Int32 | String | Char)
 						</code></pre>
 						<br>
-						<a href="#/3/6">
+						<a href="#/3/7">
 							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
 						</a>
 					</section>
@@ -170,7 +184,7 @@
 							hash = {"one" => 1, "two" => 2}
 						</code></pre>
 						<br>
-						<a href="#/3/7">
+						<a href="#/3/8">
 							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
 						</a>
 					</section>
@@ -190,21 +204,50 @@
 							#[6, 7, 8, 9]
 						</code></pre>
 						<br>
-						<a href="#/3/8">
+						<a href="#/3/9">
 							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
 						</a>
+					</section>
+					<section>
+						
+						<h2>Primitive operations</h2>
+							<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+								# Arithmetic operations 
+								1 + 1 # => 2
+								8 - 1 # => 7
+								10 * 2 # => 20
+								35 / 5 # => 7
+	
+								#Boolean operations
+								true && false # => false
+								true || false # => true
+								
+	
+								#Equality
+								1 == 1 # => true
+								2 != 1 # => true
+	
+								#Comparison
+								1 < 10 # => true
+								1 > 10 # => false
+								2 <= 2 # => true
+								2 >= 2 # => true
+							</code></pre>
+						<br>
+						<a href="#/3/10">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
+						</a>
+						
 					</section>
 					<section>
 						<h2>Sequence control</h2>
 						<p>
 							
-							Crystal boasts a rich set of control structures that allow you to express your code in a clear and concise manner. these 
-							control structures include the typical if-else, while and cases. but also includes newer constructs such as unless, until statement 
-							unlike most languages crystal does not have support for for loops. crystal also occasionaly employs compound statements to end 
-							complex control structures. this improves readability as their aren't many brackets to keep track of.
+							Crystal boasts a rich set of control structures wjich include if-else, while loops and cases. unless statement, until statement 
+							unlike most languages crystal does not have support for for loops.
 						</p>
 						<br>
-						<a href="#/3/9" class="navigate-down">
+						<a href="#/3/11" class="navigate-down">
 							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="30" height="53" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow">
 						</a>
 					</section>
@@ -229,7 +272,7 @@
 							end
 						</code></pre>
 						<br>
-						<a href="#/3/8">
+						<a href="#/3/12">
 							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
 						</a>
 					</section>
@@ -248,7 +291,7 @@
 							end
 						</code></pre>
 						<br>
-						<a href="#/3/9">
+						<a href="#/3/13">
 							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
 						</a>
 					</section>
@@ -265,7 +308,71 @@
 							end
 						</code></pre>
 						<br>
-						<a href="#/3/9">
+						<a href="#/3/14">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
+						</a>
+					</section>
+					<section>
+						<h2>Special features</h2>
+						<p>
+							Crystal has a number of special features that make it stand out from other languages. 
+							These include macros similar to those seen in Lisp as well as the ability to use C libraries. </p>
+							<br>
+						<a href="#/3/15">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
+						</a>
+					</section>
+					<section data-auto-animate>
+						<h2>Macros </h2>
+						
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|1|2-16|18-20|22-24"><script type="text/template">
+							#Macro for for loop
+							macro for(*exp, &block)
+								{% if exp[0].is_a?(Assign) %}
+									{{exp[0]}}; begin {{block.body}}; {{exp[2]}} end while {{exp[1]}}
+								{% else %}
+									{% in = exp.last.args.first; in2 = in.args.last %}
+									{% variables = exp.stringify.split('(')[0][1..-1].id %}
+									{% block = in.block.stringify.empty? ? in2.block : in.block %}
+									{% if in2.is_a?(Call) && !in2.block.stringify.empty? %}
+									{% enumerable = in2.stringify.split(" do\n")[0].id %}
+									{% else %}
+									{% enumerable = in2 %}
+									{% end %}
+									{{enumerable}}.each { |{{variables}}| {{block.body}} }
+								{% end %}
+							end
+							#for loop using range
+							for i in 0..5 do
+								puts i
+							end
+							#regular for loop
+							for i = 0, i < 6, i += 1 do
+								puts i
+							end
+						</script></code></pre>
+							<br>
+						<a href="#/3/16">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="38" height="63" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
+						</a>
+					</section>
+					<section>
+						<h2 data-id="code-title">C-Bindings</h2>
+						
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							#link C file 
+							@[Link(ldflags: "path/to/file")]
+
+							#use C function
+							lib Say 
+								fun hello(name : LibC::Char*) : Void
+							end
+
+							Say.hello("your name")
+							
+						</code></pre>
+							<br>
+						<a href="#/3/17">
 							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="73" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
 						</a>
 					</section>
@@ -273,10 +380,6 @@
 
 				
 
-				<section>
-					<h2>Language Features</h2>
-					
-				</section>
 
 
 				<section data-auto-animate>
