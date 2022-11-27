@@ -44,7 +44,7 @@ This is a presentation about the Crystal programming language made in [reveal.js
 
 4. pressing the <kbd>f</kbd> key will take you to full screen mode. you can exit full screen mode by pressing the <kbd>Esc</kbd> key
 
-5. you can press the key <kbd>?</kbd> on your keyboard to see all the keyboard shortcuts
+5. you can press the <kbd>?</kbd> key on your keyboard to see all the keyboard shortcuts
 ![keyboardShortcuts](assets/KbShortcuts.png)
 
 
