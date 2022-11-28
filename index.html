@@ -53,6 +53,7 @@
 						</li>
 						<li><a href="#/4">Language applications</a></li>
 						<li><a href="#/5">Evaluation</a></li>
+						<li><a href="#/6">Bibliography</a></li>
 					</ul>
 				</section>
 
@@ -346,28 +347,18 @@
 						
 						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|1|2-16|18-20|22-24"><script type="text/template">
 							#Macro for for loop
-							macro for(*exp, &block)
-								{% if exp[0].is_a?(Assign) %}
-									{{exp[0]}}; begin {{block.body}}; {{exp[2]}} end while {{exp[1]}}
-								{% else %}
-									{% in = exp.last.args.first; in2 = in.args.last %}
-									{% variables = exp.stringify.split('(')[0][1..-1].id %}
-									{% block = in.block.stringify.empty? ? in2.block : in.block %}
-									{% if in2.is_a?(Call) && !in2.block.stringify.empty? %}
-									{% enumerable = in2.stringify.split(" do\n")[0].id %}
-									{% else %}
-									{% enumerable = in2 %}
-									{% end %}
-									{{enumerable}}.each { |{{variables}}| {{block.body}} }
-								{% end %}
+							macro for(expr)
+								{{expr.args.first.args.first}}.each do |{{expr.name.id}}|
+									{{expr.args.first.block.body}}
+								end
 							end
-							#for loop using range
-							for i in 0..5 do
-								puts i
+
+							for e _in (1..5) do
+								puts e
 							end
-							#regular for loop
-							for i = 0, i < 6, i += 1 do
-								puts i
+
+							for e _in [x,y,z] do
+								puts e
 							end
 						</script></code></pre>
 							<br>
@@ -445,7 +436,15 @@
 					 </ul>
 
 				</section>
-				<section data-background="assets/thatsAllFolks.gif">
+				<section>
+					<h2>Bibliography</h2>
+					<ul>
+						<li>https://manas.tech/blog/2016/04/01/the-story-behind-crystal</li>
+						<li>https://crystal-lang.org/</li>
+						<li>https://forum.crystal-lang.org/t/for-macro/3573</li>
+						<li>https://www.tiobe.com/tiobe-index/</li>
+
+					</ul>
 				</section>
 
 			</div>
