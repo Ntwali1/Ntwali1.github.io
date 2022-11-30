@@ -141,11 +141,11 @@
 							#a float can be optionally sufffixed with an exponent or type
 							
 							#default float of type float64
-							myFloat1 = 3 . 1 4 5 
+							myFloat1 = 3.145 
 							# floatof type Float32
-							myFloat2 = −9.51 _f32 
+							myFloat2 = −9.51_f32 
 							# Float64 with exponent
-							myFloat3 = 1 e10 
+							myFloat3 = 1e10 
 						</code></pre>
 						<br>
 						<a href="#/3/5">
@@ -345,7 +345,7 @@
 					<section data-auto-animate>
 						<h2>Macros </h2>
 						
-						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|1|2-16|18-20|22-24"><script type="text/template">
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|1-6|8-10|12-14"><script type="text/template">
 							#Macro for for loop
 							macro for(expr)
 								{{expr.args.first.args.first}}.each do |{{expr.name.id}}|
